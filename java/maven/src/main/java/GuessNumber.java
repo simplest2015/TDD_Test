@@ -45,6 +45,14 @@ public class GuessNumber {
                 index = subString.indexOf(secondString);
             }
 
+            if(index == -1)
+            {
+                String thirdString = randomNumber.substring(2, 3);
+                subString =randomNumber.substring(0, 2) + randomNumber.substring(3,4);
+                index = subString.indexOf(thirdString);
+            }
+
+
         }while (index != -1);
 
         return randomNumber;

@@ -81,4 +81,16 @@ public class GuessNumberTest {
         assertThat(firstString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
     }
 
+    @Test
+    public void GetRandomNumber_third_string_different_with_others()
+    {
+        GuessNumber guessNumber = new GuessNumber();
+        String randomNumber = guessNumber.getRandomNumber();
+
+        String thirdString =  randomNumber.substring(2, 3);
+        assertThat(thirdString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
+        assertThat(thirdString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
+        assertThat(thirdString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
+
 }
