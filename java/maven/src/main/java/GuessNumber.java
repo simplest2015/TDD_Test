@@ -36,9 +36,14 @@ public class GuessNumber {
             String  subString = randomNumber.substring(1, 4);
 
             System.out.println(subString);
-
             index = subString.indexOf(firstString);
 
+            if(index == -1)
+            {
+                String secondString = randomNumber.substring(1, 2);
+                subString =randomNumber.substring(0, 1) + randomNumber.substring(2,4);
+                index = subString.indexOf(secondString);
+            }
 
         }while (index != -1);
 

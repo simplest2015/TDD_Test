@@ -69,4 +69,16 @@ public class GuessNumberTest {
     }
 
 
+    @Test
+    public void GetRandomNumber_second_string_different_with_others()
+    {
+        GuessNumber guessNumber = new GuessNumber();
+        String randomNumber = guessNumber.getRandomNumber();
+
+        String firstString =  randomNumber.substring(1, 2);
+        assertThat(firstString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(2, 3))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
+
 }
