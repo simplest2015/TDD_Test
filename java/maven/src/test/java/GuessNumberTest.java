@@ -56,4 +56,17 @@ public class GuessNumberTest {
         assertThat(guessNumber.getTips("1234","4367")).isEqualTo("0A2B");
     }
 
+    @Test
+    public void GetRandomNumber_first_string_different_with_others()
+    {
+        GuessNumber guessNumber = new GuessNumber();
+        String randomNumber = guessNumber.getRandomNumber();
+
+        String firstString =  randomNumber.substring(0, 1);
+        assertThat(firstString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(2, 3))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
+
+
 }
