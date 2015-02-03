@@ -31,27 +31,36 @@ public class GuessNumber {
 
             randomNumber =String.valueOf( (int)(Math.random()*9000+1000) );
             System.out.println("RandomNumber：" + randomNumber);
+//
+//            String  firstString = randomNumber.substring(0, 1);
+//            String  subString = randomNumber.substring(1, 4);
+//
+//            System.out.println(subString);
+//            index = subString.indexOf(firstString);
+//
+//            if(index == -1)
+//            {
+//                String secondString = randomNumber.substring(1, 2);
+//                subString =randomNumber.substring(0, 1) + randomNumber.substring(2,4);
+//                index = subString.indexOf(secondString);
+//            }
+//
+//            if(index == -1)
+//            {
+//                String thirdString = randomNumber.substring(2, 3);
+//                subString =randomNumber.substring(0, 2) + randomNumber.substring(3,4);
+//                index = subString.indexOf(thirdString);
+//            }
 
-            String  firstString = randomNumber.substring(0, 1);
-            String  subString = randomNumber.substring(1, 4);
 
-            System.out.println(subString);
-            index = subString.indexOf(firstString);
-
-            if(index == -1)
+            for(int i=0; i< randomNumber.length(); i++)
             {
-                String secondString = randomNumber.substring(1, 2);
-                subString =randomNumber.substring(0, 1) + randomNumber.substring(2,4);
-                index = subString.indexOf(secondString);
+                String compareString = randomNumber.substring(i, i+1);
+                String subString = randomNumber.substring(0, i) + randomNumber.substring(i+1, randomNumber.length());
+                index = subString.indexOf(compareString);
+                if(index != -1)
+                    break;
             }
-
-            if(index == -1)
-            {
-                String thirdString = randomNumber.substring(2, 3);
-                subString =randomNumber.substring(0, 2) + randomNumber.substring(3,4);
-                index = subString.indexOf(thirdString);
-            }
-
 
         }while (index != -1);
 
