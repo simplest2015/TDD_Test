@@ -1,11 +1,14 @@
 import org.junit.Test;
+import org.mockito.InOrder;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Fail.fail;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -70,6 +73,21 @@ public class AnswerGeneratorTest {
         result.add(answerGenerator.generate());
         result.add(answerGenerator.generate());
         assertThat(result.size()).isEqualTo(3);
+    }
+
+    @Test
+    public void verify_inorder() {
+        List list = mock(List.class);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        InOrder inOrder = inOrder(list);
+        inOrder.verify(list).add(2);
+        inOrder.verify(list).add(3);
+//        inOrder.verify(list).add(2);
+
+
     }
 
 }
